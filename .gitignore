@@ -1,16 +1,40 @@
-# dependencies
-node_modules
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.venv/
+venv/
+env/
 
-# env
+# Environment variables — NEVER commit these
 .env
 .env.local
+.env.production
+.env.*
+!.env.example
 
-# next
-.next
-out
+# Database — NEVER commit
+*.db
+*.sqlite
+*.sqlite3
 
-# build
-dist
+# Node
+node_modules/
+dist/
+build/
+.next/
 
-# misc
+# IDE
+.vscode/settings.json
+.idea/
+
+# Logs
+*.log
+logs/
+
+# OS
 .DS_Store
+Thumbs.db
