@@ -1,0 +1,86 @@
+"""Mock book data. Covers use placehold.co."""
+
+from models import BookResponse
+
+BOOKS: list[BookResponse] = [
+    BookResponse(
+        id=1,
+        title="The Great Gatsby",
+        author="F. Scott Fitzgerald",
+        price=12.99,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+1",
+        description="A story of decadence and the American Dream in the Jazz Age.",
+    ),
+    BookResponse(
+        id=2,
+        title="To Kill a Mockingbird",
+        author="Harper Lee",
+        price=14.50,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+2",
+        description="A novel about racial injustice and moral growth in the American South.",
+    ),
+    BookResponse(
+        id=3,
+        title="1984",
+        author="George Orwell",
+        price=11.99,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+3",
+        description="A dystopian social science fiction novel about totalitarianism.",
+    ),
+    BookResponse(
+        id=4,
+        title="Pride and Prejudice",
+        author="Jane Austen",
+        price=9.99,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+4",
+        description="A romantic novel of manners set in Georgian England.",
+    ),
+    BookResponse(
+        id=5,
+        title="The Catcher in the Rye",
+        author="J.D. Salinger",
+        price=13.25,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+5",
+        description="A novel about teenage alienation and loss of innocence.",
+    ),
+    BookResponse(
+        id=6,
+        title="Harry Potter and the Philosopher's Stone",
+        author="J.K. Rowling",
+        price=15.00,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+6",
+        description="The first book in the Harry Potter series.",
+    ),
+    BookResponse(
+        id=7,
+        title="The Hobbit",
+        author="J.R.R. Tolkien",
+        price=14.99,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+7",
+        description="A fantasy novel about the adventures of hobbit Bilbo Baggins.",
+    ),
+    BookResponse(
+        id=8,
+        title="Animal Farm",
+        author="George Orwell",
+        price=10.50,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+8",
+        description="An allegorical novella about totalitarianism and revolution.",
+    ),
+    BookResponse(
+        id=9,
+        title="The Lord of the Rings",
+        author="J.R.R. Tolkien",
+        price=18.99,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+9",
+        description="An epic high-fantasy novel set in Middle-earth.",
+    ),
+    BookResponse(
+        id=10,
+        title="Brave New World",
+        author="Aldous Huxley",
+        price=12.75,
+        cover_image_url="https://placehold.co/400x560/e5e7eb/6b7280?text=Cover+10",
+        description="A dystopian novel about a futuristic society.",
+    ),
+]
