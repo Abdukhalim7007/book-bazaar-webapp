@@ -1,15 +1,154 @@
 @use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .page {
-  padding: $spacing-lg 0;
+  padding: $spacing-lg $container-padding $spacing-2xl * 2;
 }
 
-.title {
-  font-size: $font-size-2xl;
-  font-weight: 700;
-  margin-bottom: $spacing-md;
+.pageTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-lg;
+  color: $color-foreground;
 }
 
-.placeholder {
-  color: $color-text-muted;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+}
+
+// ── Card ──────────────────────────────────────
+.card {
+  background: $color-card;
+  border-radius: $radius-card;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+}
+
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.coverWrap {
+  position: relative;
+  aspect-ratio: 200 / 280;
+  overflow: hidden;
+  background: $color-muted;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+
+  .cardLink:hover & {
+    transform: scale(1.03);
+  }
+}
+
+.heartBtn {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  width: 32px;
+  height: 32px;
+  @include flex-center;
+  background: rgba($color-card, 0.85);
+  backdrop-filter: blur(8px);
+  border: none;
+  border-radius: $radius-full;
+  font-size: 16px;
+  color: $color-sale;
+  cursor: pointer;
+  transition: transform $transition-base, opacity $transition-base;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &.removing {
+    opacity: 0.4;
+    cursor: wait;
+  }
+}
+
+.cardTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  margin: $spacing-sm $spacing-sm 0;
+  @include line-clamp(2);
+}
+
+.cardAuthor {
+  font-size: $font-size-xs;
+  color: $color-muted-foreground;
+  margin: $spacing-xs $spacing-sm 0;
+  @include truncate;
+}
+
+.cardPrice {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin: $spacing-xs $spacing-sm $spacing-sm;
+}
+
+// ── States ────────────────────────────────────
+.state {
+  @include flex-center;
+  min-height: 40vh;
+  color: $color-muted-foreground;
+}
+
+.empty {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-lg;
+  padding: $spacing-2xl $container-padding;
+  text-align: center;
+  min-height: 60vh;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  line-height: 1;
+  color: $color-sale;
+}
+
+.emptyTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+}
+
+.emptySubtitle {
+  font-size: $font-size-base;
+  color: $color-muted-foreground;
+  margin-top: -$spacing-sm;
+}
+
+.browseBtn {
+  display: inline-block;
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-primary-foreground;
+  background: $color-primary;
+  border-radius: $radius-button;
+  text-decoration: none;
+  transition: background $transition-base;
+
+  &:hover {
+    background: $color-primary-hover;
+    text-decoration: none;
+  }
 }

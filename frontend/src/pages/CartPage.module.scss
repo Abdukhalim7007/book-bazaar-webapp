@@ -1,15 +1,282 @@
 @use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .page {
-  padding: $spacing-md 0;
+  padding: $spacing-lg $container-padding $spacing-2xl * 2;
 }
 
-.title {
-  font-size: $font-size-2xl;
-  font-weight: 700;
+.pageTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
   margin-bottom: $spacing-lg;
+  color: $color-foreground;
 }
 
-.placeholder {
-  color: $color-text-muted;
+// ── Items ────────────────────────────────────
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+}
+
+.item {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: $color-card;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+}
+
+.itemCover {
+  width: 80px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+  background: $color-muted;
+}
+
+.itemInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.itemTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-foreground;
+  @include line-clamp(2);
+}
+
+.itemPrice {
+  font-size: $font-size-sm;
+  color: $color-muted-foreground;
+}
+
+.qtyRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: auto;
+}
+
+.qtyBtn {
+  width: 28px;
+  height: 28px;
+  @include flex-center;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+  transition: background $transition-base, border-color $transition-base;
+
+  &:hover {
+    background: $color-secondary;
+    border-color: $color-primary;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.qty {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+  min-width: 20px;
+  text-align: center;
+}
+
+.itemRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.itemTotal {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+}
+
+.removeBtn {
+  width: 28px;
+  height: 28px;
+  @include flex-center;
+  background: transparent;
+  border: none;
+  font-size: $font-size-sm;
+  color: $color-muted-foreground;
+  border-radius: $radius-sm;
+  transition: color $transition-base, background $transition-base;
+
+  &:hover {
+    color: $color-sale;
+    background: rgba($color-sale, 0.08);
+  }
+}
+
+// ── Promo code ────────────────────────────────
+.promoWrap {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xl;
+}
+
+.promoInput {
+  flex: 1;
+  height: 44px;
+  padding: 0 $spacing-md;
+  font-family: $font-sans;
+  font-size: $font-size-sm;
+  color: $color-foreground;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-input;
+  outline: none;
+  transition: border-color $transition-base;
+
+  &::placeholder {
+    color: $color-muted-foreground;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+  }
+}
+
+.promoBtn {
+  height: 44px;
+  padding: 0 $spacing-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  background: $color-secondary;
+  border: none;
+  border-radius: $radius-input;
+  white-space: nowrap;
+  transition: background $transition-base;
+
+  &:hover:not(:disabled) {
+    background: darken(#DDE8E1, 6%);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ── Summary ───────────────────────────────────
+.summary {
+  background: $color-card;
+  border-radius: $radius-card;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.summaryRow {
+  @include flex-between;
+  font-size: $font-size-base;
+  color: $color-foreground;
+}
+
+.free {
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.freeShippingNote {
+  font-size: $font-size-xs;
+  color: $color-primary;
+  text-align: center;
+}
+
+.totalRow {
+  padding-top: $spacing-sm;
+  border-top: 1px solid $color-border;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
+  margin-top: $spacing-xs;
+}
+
+// ── Checkout button ───────────────────────────
+.checkoutBtn {
+  display: block;
+  width: 100%;
+  padding: $spacing-lg;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-primary-foreground;
+  background: $color-primary;
+  border: none;
+  border-radius: $radius-button;
+  text-align: center;
+  transition: background $transition-base, transform $transition-base;
+
+  &:hover {
+    background: $color-primary-hover;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// ── Empty state ───────────────────────────────
+.empty {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-lg;
+  padding: $spacing-2xl $container-padding;
+  text-align: center;
+  min-height: 60vh;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.emptyTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+}
+
+.emptySubtitle {
+  font-size: $font-size-base;
+  color: $color-muted-foreground;
+  margin-top: -$spacing-sm;
+}
+
+.browseBtn {
+  display: inline-block;
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-primary-foreground;
+  background: $color-primary;
+  border-radius: $radius-button;
+  text-decoration: none;
+  transition: background $transition-base;
+
+  &:hover {
+    background: $color-primary-hover;
+    text-decoration: none;
+  }
 }

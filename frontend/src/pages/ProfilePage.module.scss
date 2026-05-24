@@ -1,15 +1,272 @@
 @use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .page {
-  padding: $spacing-md 0;
+  padding: $spacing-xl $container-padding $spacing-2xl * 2;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
 }
 
-.title {
-  font-size: $font-size-2xl;
-  font-weight: 700;
+// ── User header ───────────────────────────────
+.userHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  @include flex-center;
+  background: $color-primary;
+  color: $color-primary-foreground;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  border-radius: $radius-full;
+}
+
+.userInfo {
+  min-width: 0;
+}
+
+.userName {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+  @include truncate;
+}
+
+.username {
+  font-size: $font-size-sm;
+  color: $color-muted-foreground;
+  margin-top: 2px;
+}
+
+// ── Loyalty card ──────────────────────────────
+.loyaltyCard {
+  padding: $spacing-lg;
+  border-radius: $radius-card;
+  color: #fff;
+  box-shadow: $shadow-elevated;
+}
+
+.tierBronze {
+  background: linear-gradient(135deg, #cd7f32, #a0522d);
+}
+
+.tierSilver {
+  background: linear-gradient(135deg, #8e9eab, #5c6b77);
+}
+
+.tierGold {
+  background: linear-gradient(135deg, #b8860b, #8b6914);
+}
+
+.loyaltyTop {
+  @include flex-between;
+  align-items: flex-start;
   margin-bottom: $spacing-lg;
 }
 
-.placeholder {
-  color: $color-text-muted;
+.loyaltyLabel {
+  font-size: $font-size-xs;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.loyaltyPoints {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+}
+
+.tierBadge {
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: $radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+}
+
+.progressBar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: $radius-full;
+  margin-bottom: $spacing-sm;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: $radius-full;
+  transition: width 0.6s ease;
+}
+
+.tierNote {
+  font-size: $font-size-xs;
+  opacity: 0.85;
+}
+
+// ── Stats row ─────────────────────────────────
+.statsRow {
+  display: flex;
+  align-items: center;
+  background: $color-card;
+  border-radius: $radius-card;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.statItem {
+  flex: 1;
+  text-align: center;
+}
+
+.statValue {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+  @include truncate;
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  color: $color-muted-foreground;
+  margin-top: 2px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 32px;
+  background: $color-border;
+}
+
+// ── Section ───────────────────────────────────
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+}
+
+// ── Orders ────────────────────────────────────
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.orderItem {
+  @include flex-between;
+  padding: $spacing-md;
+  background: $color-card;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  text-decoration: none;
+  color: inherit;
+  transition: background $transition-base;
+
+  &:hover {
+    background: $color-secondary;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.orderId {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-foreground;
+}
+
+.orderDate {
+  font-size: $font-size-xs;
+  color: $color-muted-foreground;
+  margin-top: 2px;
+}
+
+.orderRight {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.orderTotal {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+}
+
+.orderStatus {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  padding: 2px 8px;
+  border-radius: $radius-full;
+}
+
+.statusPending   { background: #FEF3C7; color: #92400E; }
+.statusConfirmed { background: #D1FAE5; color: #065F46; }
+.statusShipped   { background: #DBEAFE; color: #1E40AF; }
+.statusDelivered { background: #D1FAE5; color: #065F46; }
+.statusCancelled { background: #FEE2E2; color: #991B1B; }
+
+// ── Menu ──────────────────────────────────────
+.menu {
+  display: flex;
+  flex-direction: column;
+  background: $color-card;
+  border-radius: $radius-card;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  text-decoration: none;
+  color: $color-foreground;
+  border-bottom: 1px solid $color-border;
+  transition: background $transition-base;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $color-secondary;
+    text-decoration: none;
+    color: $color-foreground;
+  }
+}
+
+.menuIcon {
+  font-size: 1.125rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.menuLabel {
+  flex: 1;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+}
+
+.menuArrow {
+  font-size: $font-size-lg;
+  color: $color-muted-foreground;
 }
