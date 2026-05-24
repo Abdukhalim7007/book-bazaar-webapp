@@ -1,0 +1,101 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  padding: $spacing-lg 0 $spacing-xl;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+  padding: 0 $spacing-xs;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+}
+
+.controls {
+  display: none;
+  gap: $spacing-sm;
+
+  @include respond-to('md') {
+    display: flex;
+  }
+}
+
+.btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  @include flex-center;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: $color-text;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: 0.5rem;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: $color-background-alt;
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
+.track {
+  display: flex;
+  gap: $spacing-md;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: $spacing-xs $spacing-xs $spacing-md;
+  margin: 0 (-$spacing-md);
+
+  @include respond-to('md') {
+    margin: 0 (-$spacing-lg);
+    padding: $spacing-xs $spacing-lg $spacing-md;
+  }
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-background-alt;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-border;
+    border-radius: 3px;
+  }
+}
+
+.slide {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+
+  // Mobile: ~1–2 cards per view (card width ~55% of 320px ≈ 176px min, allow 2 visible on larger phones)
+  width: 72%;
+
+  @include respond-to('sm') {
+    width: 48%;
+  }
+
+  @include respond-to('md') {
+    width: 32%;
+  }
+
+  @include respond-to('lg') {
+    width: 22%;
+  }
+
+  @include respond-to('xl') {
+    width: 18%;
+  }
+}

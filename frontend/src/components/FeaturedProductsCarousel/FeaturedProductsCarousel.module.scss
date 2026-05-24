@@ -1,0 +1,117 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  padding: 0 $container-padding $section-gap;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+  line-height: $line-height-heading;
+}
+
+.viewAll {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-primary;
+  text-decoration: none;
+  transition: opacity $transition-base;
+
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+}
+
+.controls {
+  display: none;
+  gap: $spacing-sm;
+
+  @include respond-to('md') {
+    display: flex;
+  }
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  @include flex-center;
+  font-size: 1.25rem;
+  color: $color-foreground;
+  background: $color-muted;
+  border: none;
+  border-radius: $radius-full;
+  transition: background $transition-base, color $transition-base;
+
+  &:hover {
+    background: $color-border;
+    color: $color-primary;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.track {
+  display: flex;
+  gap: $grid-gap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 0 $spacing-sm;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+}
+
+.slide {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 48%;
+
+  @include respond-to('sm') {
+    width: 42%;
+  }
+
+  @include respond-to('md') {
+    width: 32%;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-md 0 0;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  background: $color-border;
+  cursor: pointer;
+  transition: background $transition-base, width $transition-base;
+
+  &.active {
+    background: $color-primary;
+    width: 24px;
+  }
+
+  &:hover {
+    background: $color-muted-foreground;
+  }
+}

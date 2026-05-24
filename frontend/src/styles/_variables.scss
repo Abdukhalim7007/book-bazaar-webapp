@@ -1,0 +1,88 @@
+// ========== BOOKSTORE DESIGN SYSTEM ==========
+// Warm, calm, cozy, book-centric. Light theme default.
+
+// Colors
+$color-background: #FAF9F6;        // soft cream
+$color-card: #FFFFFF;               // pure white
+$color-primary: #2F6B4F;            // calm green
+$color-primary-foreground: #FFFFFF;
+$color-secondary: #DDE8E1;          // soft sage
+$color-accent-peach: #F3E6D8;      // accent peach / soft beige
+$color-foreground: #1F2D26;         // dark olive (text primary)
+$color-muted-foreground: #7A8A82;   // muted gray (text secondary)
+$color-border: #ECECEC;              // very light gray
+
+// Aliases
+$color-muted: $color-secondary;
+$color-text: $color-foreground;
+$color-text-muted: $color-muted-foreground;
+$color-background-alt: $color-secondary;
+$color-nav-active: $color-primary;
+$color-nav-inactive: $color-muted-foreground;
+$color-sale: #C45C4A;               // soft sale red (no harsh)
+$color-star: #B8860B;              // warm gold
+$color-logo: $color-primary;
+$color-promo-green: $color-primary;
+$color-accent: $color-primary;  // links, active states
+$color-primary-hover: #265A43;
+$color-search-bg: #F3E6D8;         // soft beige for search
+
+// Typography – DM Sans, friendly
+$font-sans: "DM Sans", system-ui, sans-serif;
+$font-size-xs: 0.6875rem;   // 11px
+$font-size-sm: 0.8125rem;  // 13px
+$font-size-base: 0.9375rem; // 15px
+$font-size-lg: 1.125rem;   // 18px
+$font-size-xl: 1.25rem;    // 20px
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 600;            // avoid heavy bolds
+$line-height-body: 1.5;
+$line-height-heading: 1.4;
+
+// Border radius
+$radius-sm: 8px;
+$radius-button: 14px;
+$radius-input: 16px;
+$radius-card: 18px;
+$radius-lg: 16px;
+$radius-xl: 20px;
+$radius-full: 9999px;
+$radius-md: 14px;
+
+// Shadows – soft, no harsh
+$shadow-card: 0 6px 20px rgba(0, 0, 0, 0.04);
+$shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.06);
+$shadow-sm: $shadow-card;
+$shadow-md: $shadow-elevated;
+$shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+
+// Spacing – generous, breathing room
+$spacing-xs: 6px;
+$spacing-sm: 10px;
+$spacing-md: 14px;
+$spacing-lg: 18px;
+$spacing-xl: 28px;
+$spacing-2xl: 40px;
+$container-padding: 18px;
+$section-gap: 32px;
+$grid-gap: 14px;
+$card-padding: 14px;
+
+// Layout
+$container-max-width: 448px;
+$header-height: 56px;
+$search-bar-height: 48px;
+$hero-height: 200px;
+$bottom-nav-height: 64px;
+$transition-base: 0.2s ease;
+$transition-banner: 500ms ease-out;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+$font-size-2xl: 1.5rem;

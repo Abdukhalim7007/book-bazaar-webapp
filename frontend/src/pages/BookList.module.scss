@@ -1,0 +1,73 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  padding: $spacing-md 0 $spacing-2xl;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-xl;
+}
+
+.state {
+  color: $color-text-muted;
+  padding: $spacing-xl 0;
+}
+
+.grid {
+  display: grid;
+  gap: $spacing-lg;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-xl;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cardWrap {
+  min-width: 0;
+}
+
+.pagination {
+  @include flex-center;
+  gap: $spacing-lg;
+  margin-top: $spacing-2xl;
+  padding-top: $spacing-xl;
+}
+
+.btn {
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-primary;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: 0.5rem;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background: $color-background-alt;
+    border-color: $color-primary;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.pageInfo {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}

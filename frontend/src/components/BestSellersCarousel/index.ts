@@ -1,0 +1,1 @@
+export { BestSellersCarousel } from './BestSellersCarousel'

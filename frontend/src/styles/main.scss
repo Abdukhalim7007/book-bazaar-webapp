@@ -1,0 +1,59 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --app-bg: #{$color-background};
+  --app-fg: #{$color-foreground};
+  --app-card: #{$color-card};
+  --app-border: #{$color-border};
+  --app-muted: #{$color-secondary};
+  --app-muted-fg: #{$color-muted-foreground};
+}
+
+body {
+  font-family: $font-sans;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-body;
+  color: var(--app-fg);
+  background-color: var(--app-bg);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}

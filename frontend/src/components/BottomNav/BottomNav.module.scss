@@ -1,0 +1,61 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: $container-max-width;
+  height: $bottom-nav-height;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  background: $color-card;
+  border-top: 1px solid var(--app-border);
+  border-radius: $radius-card $radius-card 0 0;
+  z-index: 20;
+  @include flex-between;
+  padding: 0 $spacing-sm;
+  padding-top: $spacing-sm;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.04);
+
+  @media (max-width: $breakpoint-md) {
+    display: flex;
+  }
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: $spacing-xs;
+  color: $color-nav-inactive;
+  text-decoration: none;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-primary;
+    text-decoration: none;
+  }
+
+  &.active {
+    color: $color-primary;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.label {
+  line-height: 1;
+}

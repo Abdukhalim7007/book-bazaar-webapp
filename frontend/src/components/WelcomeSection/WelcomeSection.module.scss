@@ -1,0 +1,21 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  padding: $spacing-2xl $container-padding $spacing-lg;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-foreground;
+  margin-bottom: $spacing-sm;
+  line-height: $line-height-heading;
+}
+
+.subtitle {
+  font-size: $font-size-base;
+  color: $color-muted-foreground;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-body;
+}

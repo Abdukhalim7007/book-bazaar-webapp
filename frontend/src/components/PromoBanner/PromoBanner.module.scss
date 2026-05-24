@@ -1,0 +1,113 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  padding: $spacing-xl;
+  margin: 0 $container-padding $section-gap;
+  border-radius: $radius-card;
+}
+
+.light {
+  background: $color-primary;
+  border: none;
+
+  .title {
+    color: $color-primary-foreground;
+  }
+
+  .subtitle,
+  .eyebrow {
+    color: rgba($color-primary-foreground, 0.95);
+  }
+}
+
+.dark {
+  background: hsl(220, 20%, 14%);
+  border: none;
+
+  .title {
+    color: #fff;
+  }
+
+  .subtitle,
+  .eyebrow {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.green {
+  background: $color-promo-green;
+  border: none;
+
+  .title {
+    color: $color-primary-foreground;
+  }
+
+  .subtitle,
+  .eyebrow {
+    color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-lg;
+  max-width: $container-max-width;
+  margin: 0 auto;
+}
+
+.textBlock {
+  flex: 1;
+  min-width: 0;
+}
+
+.eyebrow {
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-xs;
+  opacity: 0.95;
+}
+
+.iconWrap {
+  flex-shrink: 0;
+  font-size: 2.5rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-sm;
+  line-height: $line-height-heading;
+}
+
+.subtitle {
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-md;
+}
+
+.cta {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-foreground;
+  background: $color-card;
+  border: none;
+  border-radius: $radius-button;
+  text-decoration: none;
+  box-shadow: $shadow-card;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-elevated;
+    color: $color-foreground;
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

@@ -1,0 +1,15 @@
+@use '@/styles/variables' as *;
+
+.page {
+  padding: $spacing-lg 0;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: 700;
+  margin-bottom: $spacing-md;
+}
+
+.placeholder {
+  color: $color-text-muted;
+}

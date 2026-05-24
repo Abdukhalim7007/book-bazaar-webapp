@@ -1,0 +1,162 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header {
+  background-color: var(--app-card);
+  border-bottom: 1px solid var(--app-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $spacing-lg $container-padding $spacing-xl;
+  margin-bottom: $spacing-md;
+}
+
+.topRow {
+  @include flex-between;
+  align-items: center;
+  min-height: 52px;
+  padding: 0;
+  gap: $spacing-sm;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: $radius-full;
+  color: var(--app-fg);
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: color $transition-base, transform $transition-base;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.leftBlock {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+  min-width: 0;
+}
+
+.logoCircle {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  @include flex-center;
+  background: $color-primary;
+  color: $color-primary-foreground;
+  border-radius: $radius-full;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.deliveryText {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: var(--app-fg);
+  line-height: $line-height-body;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.bellIcon,
+.cartIcon {
+  line-height: 1;
+}
+
+.iconBtn {
+  position: relative;
+}
+
+.notifDot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  background: $color-sale;
+  border-radius: 50%;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  @include flex-center;
+  background: $color-sale;
+  color: $color-primary-foreground;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-full;
+}
+
+.searchWrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  min-height: 48px;
+  margin-top: $spacing-lg;
+  padding: 0 $spacing-lg;
+  background: $color-search-bg;
+  border: none;
+  border-radius: 16px;
+  gap: $spacing-md;
+}
+
+.searchIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--app-muted-fg);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  font-family: $font-sans;
+  font-size: $font-size-base;
+  color: var(--app-fg);
+
+  &::placeholder {
+    color: var(--app-muted-fg);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

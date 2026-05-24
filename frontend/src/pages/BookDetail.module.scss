@@ -1,0 +1,92 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  padding: $spacing-lg 0 $spacing-2xl;
+}
+
+.state {
+  color: $color-text-muted;
+  padding: $spacing-xl 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+
+  @include respond-to('lg') {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: $spacing-2xl;
+  }
+}
+
+.coverWrap {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  background: $color-background-alt;
+
+  @include respond-to('lg') {
+    max-width: 400px;
+    margin: 0;
+  }
+}
+
+.cover {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 400 / 560;
+  object-fit: cover;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  line-height: 1.2;
+  margin-bottom: $spacing-sm;
+
+  @include respond-to('md') {
+    font-size: 2rem;
+  }
+}
+
+.author {
+  font-size: $font-size-lg;
+  color: $color-text-muted;
+  margin-bottom: $spacing-md;
+}
+
+.price {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-lg;
+}
+
+.description {
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $color-text;
+
+  p {
+    margin-bottom: $spacing-md;
+    white-space: pre-wrap;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
