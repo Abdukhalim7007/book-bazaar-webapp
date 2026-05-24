@@ -49,10 +49,31 @@
   }
 }
 
+.iconWrap {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  @include flex-center;
+}
+
 .icon {
-  width: 20px;
-  height: 20px;
   font-size: 1.125rem;
+  line-height: 1;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  @include flex-center;
+  background: $color-sale;
+  color: #fff;
+  font-size: 10px;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-full;
   line-height: 1;
 }
 

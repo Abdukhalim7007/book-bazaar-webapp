@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useCart } from '@/contexts/CartContext'
 import styles from './Header.module.scss'
 
 function BookIcon() {
@@ -13,6 +15,16 @@ function BookIcon() {
 }
 
 export function Header() {
+  const { itemCount } = useCart()
+  const navigate = useNavigate()
+  const [query, setQuery] = useState('')
+
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && query.trim()) {
+      navigate(`/search?q=${encodeURIComponent(query.trim())}`)
+    }
+  }
+
   return (
     <header className={styles.header} role="banner">
       <div className={styles.topRow}>
@@ -23,13 +35,16 @@ export function Header() {
           <span className={styles.deliveryText}>Yetkazib berish — Toshkent, UZ</span>
         </Link>
         <div className={styles.icons}>
-          <Link to="/profile" className={styles.iconBtn} aria-label="Bildirishnomalar">
+          <Link to="/orders" className={styles.iconBtn} aria-label="Buyurtmalar">
             <span className={styles.bellIcon} aria-hidden>🔔</span>
-            <span className={styles.notifDot} aria-hidden />
           </Link>
           <Link to="/cart" className={styles.iconBtn} aria-label="Savat">
             <span className={styles.cartIcon} aria-hidden>🛒</span>
-            <span className={styles.cartBadge} aria-hidden>2</span>
+            {itemCount > 0 && (
+              <span className={styles.cartBadge} aria-label={`${itemCount} ta mahsulot savatda`}>
+                {itemCount > 99 ? '99+' : itemCount}
+              </span>
+            )}
           </Link>
         </div>
       </div>
@@ -40,6 +55,9 @@ export function Header() {
           className={styles.searchInput}
           placeholder="Kitob qidirish..."
           aria-label="Kitob qidirish"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleSearch}
         />
       </div>
     </header>

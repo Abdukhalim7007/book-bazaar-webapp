@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useCart } from '@/contexts/CartContext'
 import styles from './BottomNav.module.scss'
 
 const ITEMS = [
@@ -11,6 +12,7 @@ const ITEMS = [
 
 export function BottomNav() {
   const location = useLocation()
+  const { itemCount } = useCart()
 
   return (
     <nav className={styles.nav} aria-label="Bottom navigation">
@@ -24,8 +26,13 @@ export function BottomNav() {
             aria-current={isActive ? 'page' : undefined}
             aria-label={item.label}
           >
-            <span className={styles.icon} aria-hidden>
-              {item.icon}
+            <span className={styles.iconWrap}>
+              <span className={styles.icon} aria-hidden>{item.icon}</span>
+              {item.to === '/cart' && itemCount > 0 && (
+                <span className={styles.badge} aria-label={`${itemCount} ta mahsulot`}>
+                  {itemCount > 9 ? '9+' : itemCount}
+                </span>
+              )}
             </span>
             <span className={styles.label}>{item.label}</span>
           </Link>
